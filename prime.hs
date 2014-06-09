@@ -12,6 +12,6 @@
 -- findPrimesTheTediousWay x = if x == 1 then True else (if mod x x-1 != 0 then False else findPrimesTheTediousWay )
 isPrime1 x = not (f1 x [2..x-1])
 isPrime2 x = not (f1 x [2..div x 2])
-isPrime3 x = not (f1 x [2..(truncate (sqrt x))]) -- TODO: fix type problem
+isPrime3 x = not (f1 x [2..(truncate (sqrt (fromIntegral x)))]) -- TODO: fix type problem
 f1 x n = if length n == 0 then False else if mod x (head n) == 0 then True else f1 x (tail n)
 
