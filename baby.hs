@@ -64,6 +64,5 @@ a `myCompare` b
     | otherwise = GT
 
 initials :: String -> String -> String
-initials firstname lastname = f ++ ". " ++ s ++ "."
-  where f = [firstname !! 0]
-        s = [lastname !! 0]
+initials firstname lastname = [f] ++ ". " ++ [s] ++ "."
+  where ((f:_), (s:_)) = (firstname, lastname)
