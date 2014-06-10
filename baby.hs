@@ -56,6 +56,10 @@ calcBmis :: [(Double, Double)] -> [Double]
 calcBmis xs = [ bmi m l | (m, l) <- xs ]
   where bmi mass length = (mass/length^2)
 
+calcBmis' :: [(Double, Double)] -> [Double]
+calcBmis' xs = [ m/l^2 | (m, l) <- xs ]
+
+
 max' :: Ord a => a -> a -> a
 max' a b
   | a >= b = a
