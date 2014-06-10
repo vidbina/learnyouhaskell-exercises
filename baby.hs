@@ -62,3 +62,8 @@ a `myCompare` b
     | a == b = EQ
     | a < b = LT
     | otherwise = GT
+
+initials :: String -> String -> String
+initials firstname lastname = f ++ ". " ++ s ++ "."
+  where f = [firstname !! 0]
+        s = [lastname !! 0]
