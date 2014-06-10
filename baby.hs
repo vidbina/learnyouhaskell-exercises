@@ -52,6 +52,10 @@ bmiTell weight height
         normal = 25.0
         fat    = 30.0
 
+calcBmis :: [(Double, Double)] -> [Double]
+calcBmis xs = [ bmi m l | (m, l) <- xs ]
+  where bmi mass length = (mass/length^2)
+
 max' :: Ord a => a -> a -> a
 max' a b
   | a >= b = a
