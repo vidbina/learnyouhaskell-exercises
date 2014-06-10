@@ -27,3 +27,22 @@ third (_, _, z) = z
 
 third' :: (a, b, c) -> c
 third' (_, _, z) = z
+
+head' :: [a] -> a
+head' [] = error "Can't do read the head of an empty list, bozo!"
+head' (x:_) = x -- NOTE: It's not a vector parenthesis are here to set the 
+-- bounds for an argument
+-- x:a is alread a list so [x:a] would be a list of a list?
+-- (x:a) is simply x:a but the paremeters set the bounds for the parser to work 
+-- with
+
+firstLetter :: String -> String
+firstLetter "" = error "Empty string"
+firstLetter all@(x:xs) = [x] ++ " of " ++ all ++ ", hahaha!"
+
+bmiTell :: Double -> String
+bmiTell bmi
+  | bmi < 18.5 = "You underweight feather... gain some weight"
+  | bmi < 25 = "The say your normal. I'm sure there is still something off about you. Assymetric facial features perhaps? F*-ed up toes?"
+  | bmi < 30 = "You fat slob. Hope you are happy with yourself you little fat f*"
+  | otherwise = "Godzillllaaaaaa!!!"
