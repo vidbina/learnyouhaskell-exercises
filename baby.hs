@@ -42,14 +42,15 @@ firstLetter all@(x:xs) = [x] ++ " of " ++ all ++ ", hahaha!"
 
 bmiTell :: Double -> Double -> String
 bmiTell weight height
--- STUDY: would there be a device to prevent me from repeating part of the 
--- expression in the guard conditions? It is (weight/height^2) but if I have 
--- 100 guards and I need to change the condition I'll have to change 100
--- expressions
-  | (weight/height^2) < 18.5 = "You underweight feather... gain some weight"
-  | (weight/height^2) < 25 = "The say your normal. I'm sure there is still something off about you. Assymetric facial features perhaps? F*-ed up toes?"
-  | (weight/height^2) < 30 = "You fat slob. Hope you are happy with yourself you little fat f*"
-  | otherwise = "Godzillllaaaaaa!!!"
+-- Wow the where keyword is a lifesaver. The elagance of Haskell is mindblowing
+  | bmi < skinny = "You underweight feather... gain some weight"
+  | bmi < normal = "The say your normal. I'm sure there is still something off about you. Assymetric facial features perhaps? F*-ed up toes?"
+  | bmi < fat    = "You fat slob. Hope you are happy with yourself you little fat f*"
+  | otherwise    = "Godzillllaaaaaa!!!"
+  where bmi    = (weight/height^2)
+        skinny = 18.5
+        normal = 25.0
+        fat    = 30.0
 
 max' :: Ord a => a -> a -> a
 max' a b
